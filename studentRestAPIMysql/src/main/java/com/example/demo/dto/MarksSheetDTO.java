@@ -2,7 +2,6 @@ package com.example.demo.dto;
 
 import java.io.Serializable;
 
-import com.example.demo.model.Student;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -13,8 +12,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class MarksSheetDTO implements Serializable{
 

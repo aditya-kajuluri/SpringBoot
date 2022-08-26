@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -57,9 +56,8 @@ public class MarksSheet implements Serializable{
 	@Column(name = "subject_6")
 	private int sub6;
 	
-	// addeded JsonIgnore because for getmarks api it was giving huge data (stack over flow error)
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "student_id", insertable = false, updatable = false)
+	@ManyToOne()
+	@JoinColumn(name = "student_id")
 	private Student student;
 
 	public MarksSheet() {

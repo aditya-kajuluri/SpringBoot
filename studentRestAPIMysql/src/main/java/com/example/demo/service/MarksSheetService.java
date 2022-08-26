@@ -10,5 +10,6 @@ public interface MarksSheetService {
 	MarksSheet saveMarksSheet(MarksSheet marksSheet);
 	List<MarksSheet> getAllMarksSheet();
 	List<MarksSheetDTO> getMarksByStudentId(long id);
-	MarksSheet updatemarksByStudentId(MarksSheet marksSheet, long id);
+	MarksSheet updateMarksSheet(MarksSheet marksSheet, long id);
+	void deleteMarksSheet(long id);
 }

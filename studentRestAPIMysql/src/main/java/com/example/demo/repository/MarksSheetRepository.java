@@ -12,4 +12,6 @@ public interface MarksSheetRepository extends JpaRepository<MarksSheet, Long>{
 	
 	@Query(value = "SELECT * FROM marks_sheet where student_Id =:bvStudentId", nativeQuery = true)
 	   public List<MarksSheet> getMarksByStudentId(@Param("bvStudentId") Long studentId);
+	
+	
 }

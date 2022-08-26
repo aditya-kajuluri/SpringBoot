@@ -48,20 +48,31 @@ public class StudentServiceImpl implements StudentService{
 		Student currentStudent = studentRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Student", "Id", id));
 		
 		if(student.getName() != null || student.getName() != "")
-		currentStudent.setName(student.getName());
+			currentStudent.setName(student.getName());
 		
 		if(student.getGrade() != 0)
-		currentStudent.setGrade(student.getGrade());
+			currentStudent.setGrade(student.getGrade());
 		
 		if(student.getDept() != null || student.getName() != "")
-		currentStudent.setDept(student.getDept());
+			currentStudent.setDept(student.getDept());
 		
 		if(student.getClassRoom() != 0)
-		currentStudent.setClassRoom(student.getClassRoom());
+			currentStudent.setClassRoom(student.getClassRoom());
 		
 		studentRepository.save(currentStudent);
 		
 		return currentStudent;
+	}
+
+
+	@Override
+	public void deleteStudent(long id) {
+		
+		// check id exists in DB
+		studentRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Student", "Id", id));
+		
+		studentRepository.deleteById(id);
+		
 	}
 
 }

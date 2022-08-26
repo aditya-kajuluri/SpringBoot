@@ -3,10 +3,8 @@ package com.example.demo.model;
 import java.io.Serializable;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,10 +14,13 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "student")
+@Getter
+@Setter
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Student implements Serializable{
 
@@ -45,7 +46,7 @@ public class Student implements Serializable{
 	@Column(name = "class_room")
 	private int classRoom;
 	
-	@OneToMany(mappedBy = "student", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "student")
 	private Set<MarksSheet> marksSheet;
 
 //	without default constructor getting errors or no data -- **research**
@@ -65,55 +66,5 @@ public Student(long id, String name, int grade, String dept, int classRoom, Set<
 }
 
 
-
-public long getId() {
-	return id;
-}
-
-public void setId(long id) {
-	this.id = id;
-}
-
-public String getName() {
-	return name;
-}
-
-public void setName(String name) {
-	this.name = name;
-}
-
-public int getGrade() {
-	return grade;
-}
-
-public void setGrade(int grade) {
-	this.grade = grade;
-}
-
-public String getDept() {
-	return dept;
-}
-
-public void setDept(String dept) {
-	this.dept = dept;
-}
-
-public int getClassRoom() {
-	return classRoom;
-}
-
-public void setClassRoom(int classRoom) {
-	this.classRoom = classRoom;
-}
-
-
-public Set<MarksSheet> getMarksSheet() {
-	return marksSheet;
-}
-
-public void setMarksSheet(Set<MarksSheet> marksSheet) {
-	this.marksSheet = marksSheet;
-}
-	
 	
 }
