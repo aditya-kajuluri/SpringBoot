@@ -12,9 +12,6 @@ import com.example.demo.model.MarksSheet;
 import com.example.demo.repository.MarksSheetRepository;
 import com.example.demo.service.MarksSheetService;
 
-import ma.glasnost.orika.MapperFactory;
-import ma.glasnost.orika.impl.DefaultMapperFactory;
-
 @Service("MarksSheetService")
 public class MarksSheetServiceImpl implements MarksSheetService{
 	
@@ -22,12 +19,10 @@ public class MarksSheetServiceImpl implements MarksSheetService{
 	private MarksSheetRepository marksSheetRepository;
 	
 	
-	MapperFactory mapperFactory = new DefaultMapperFactory.Builder().build();
-	
-//	public MarksSheetServiceImpl(MarksSheetRepository marksSheetRepository) {
-//		super();
-//		this.marksSheetRepository = marksSheetRepository;
-//	}
+	public MarksSheetServiceImpl(MarksSheetRepository marksSheetRepository) {
+		super();
+		this.marksSheetRepository = marksSheetRepository;
+	}
 
 	@Override
 	public MarksSheet saveMarksSheet(MarksSheet marksSheet) {

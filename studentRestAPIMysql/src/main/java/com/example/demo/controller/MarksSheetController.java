@@ -52,7 +52,7 @@ public class MarksSheetController {
 		
 		// update marksSheet by id REST API
 		@PutMapping("{id}")
-		public ResponseEntity<MarksSheet> updateStudent(@RequestBody MarksSheet marksSheet, @PathVariable("id") long id){
+		public ResponseEntity<MarksSheet> updateMarksSheet(@RequestBody MarksSheet marksSheet, @PathVariable("id") long id){
 			
 			return new ResponseEntity<MarksSheet>(marksSheetService.updateMarksSheet(marksSheet, id), HttpStatus.OK);
 		}

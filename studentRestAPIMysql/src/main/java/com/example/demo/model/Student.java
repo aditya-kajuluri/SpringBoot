@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -48,6 +49,9 @@ public class Student implements Serializable{
 	
 	@OneToMany(mappedBy = "student")
 	private Set<MarksSheet> marksSheet;
+	
+	@OneToMany(mappedBy = "familyOfStudent")
+	private List<FamilyDetails> familyDetails;
 
 //	without default constructor getting errors or no data -- **research**
 public Student() {
